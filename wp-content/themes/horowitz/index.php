@@ -2,8 +2,7 @@
 
 			<div id="content">
 
-				<div id="inner-content" class="container clearfix">
-						
+				<div id="inner-content" class="container clearfix">						
 						<div id="main"  role="main" class="recent-posts">
 							<div class="row">
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -13,7 +12,15 @@
 									<h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 									<section class="entry-content clearfix">
 										<?php the_excerpt(); ?>
-										<a class="btn btn-primary btn-small pull-left" href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">המשך קריאה</a>
+										<?php $external_link = get_field('external_link');
+										if ($external_link){
+											$continue = $external_link;
+											$target = '_blank';
+										}else{
+											$continue = get_the_permalink();
+											$target = '_self';
+										}?>
+										<a class="btn btn-primary btn-small pull-left" href="<?php echo $continue ?>" target="<?php echo $target ?>"  rel="bookmark" title="<?php the_title_attribute(); ?>">המשך קריאה</a>
 									</section>
 								</div>
 							</article>

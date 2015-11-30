@@ -41,55 +41,129 @@
 	<body <?php body_class(); ?>>
 		<div class="row-offcanvas row-offcanvas-left">
 			<header class="header">
+				<div class="top-header">
+					 <div class="container">
+						<div class="row">
+						 	<div class="col-sm-6 toolbar-right">
+						 		<div class="personal pull-left">
+						 			<a href=""><span class="icon-login"></span> כניסת לקוחות</a>					 			
+						 		</div>
+						 		<div class="search pull-left">
+						 			<a class="top-search" href=""><i class="fa fa-search"></i></a>
+						 		</div>
+						 		<form style="display:none;" id="search-form" class="navbar-form pull-right" role="search" method="get" action="<?php echo home_url(
+						 		 ); ?>">
+									<input type="text" name="s" id="s" class="input-medium">
+									<button type="submit" class="btn"><i class="fa fa-search"></i></button>
+								</form><!-- .navbar-form -->
+						 	</div>
+							<div class="col-sm-6 toolbar-left">
+								<div class="top-phone pull-right">
+									<a href="tel:03-6843000">03-6843000 <i class="fa fa-phone"></i></a>
+								</div>
+								<div class="social pull-right">
+									<li><a href=""><i class="fa fa-facebook"></i></a></li>
+									<li><a href=""><i class="fa fa-google-plus"></i></a></li>
+									<li><a href=""><i class="fa fa-twitter"></i></a></li>
+									<li><a href=""><i class="fa fa-instagram"></i></a></li>
+									<li><a href=""><i class="fa fa-youtube"></i></a></li>
+								</div>
+							</div>
+						</div>
+					 </div>
+				</div>
 				<nav>
       			  <div class="container">
-        			  <div class="navbar-header pull-right">
+        			  <div class="navbar-header">
 			            <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas"  aria-expanded="false" aria-controls="navbar">
 			              <span class="sr-only">Toggle navigation</span>
 			              <span class="icon-bar"></span>
 			              <span class="icon-bar"></span>
 			              <span class="icon-bar"></span>
 			            </button>
-			              <a class="navbar-brand" href="<?php echo home_url(); ?>" rel="nofollow"><img src="<?php echo get_template_directory_uri(); ?>/library/images/logo.png"/></a>
+			              <a class="navbar-brand" href="<?php echo home_url(); ?>" rel="nofollow"><img src="<?php echo get_template_directory_uri(); ?>/library/images/logo-big.png"/></a>
 			          </div>
-					<?php 
-						wp_nav_menu( array(
-							'menu'              => 'main-nav',
-							'theme_location'    => 'main-nav',
-							'depth'             => 2,
-							'container'         => 'div',
-							'container_id'   	=>	'navbar' ,
-							'container_class'   => 'sidebar-offcanvas pull-left clearfix',
-							'menu_class'        => 'nav navbar-nav',
-							'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-							'walker'            => new wp_bootstrap_navwalker())
-						);
-						?>
+			          <div class="sidebar-offcanvas clearfix">
+			          	<?php bones_main_nav_right();?>
+						<?php bones_main_nav_left();?>
+						</div>
 					</div><!--/.container-fluid -->
       			</nav>
 			</header>
 			<div class="page-title">
 				<div class="container wide">
-					<?php if (is_front_page()):?>
-						<img src="<?php echo get_stylesheet_directory_uri()?>/library/images/MainPic.jpg"/>
-					<div class="intro-text">
+					<?php 
+					$default_header_img = get_field('default_header_image',option);
+					$overlay_color = get_field('header_overlay_color',option);
+					$overlay_opacity = get_field('header_opacity',option);
+					$header_img = get_field('header_image');
+					global $wp_query;
+						$cat = $wp_query->get_queried_object();
+						$status_header_img = get_field('status_header_img', 'project_status_' . $cat->term_id);
+					
+					if ($header_img) {
+						echo '<img src="'.$header_img['url'].'"/>';					
+					}
+					elseif($status_header_img){						
+						echo '<img src="'.$status_header_img['url'].'"/>';
+					}else{
+						echo '<img src="'.$default_header_img['url'].'"/>';	
+					}
+					if (!is_front_page() && !is_singular('projects')) {
+						echo '<div class="section-overlay" style="background:'.$overlay_color.';opacity:'.$overlay_opacity.'"></div>';
+					}
+					
+				if (is_front_page()):?>
+					<div class="hero-text">
 						<h1>
-							<span>דוח משרד החינוך קבע:</span>
-							"שיטת ליט"ף היא המקדמת ביותר את התלמידים ברכישת מיומנויות הקריאה"
+							<span>תנו לנו לבנות</span>
+							את החלום שלכם
 						</h1>
-						<a class="btn btn-default btn-large fancybox-pdf"  href="http://litaf.co.il/wp-content/uploads/2015/09/2003.pdf">המשך קריאה</a>
 					</div>
-				<?php elseif (is_home() || is_single()):?>
-					<h1>מאמרים</h1>
-				<?php elseif (is_post_type_archive('products')):?>
-					<h1>קטלוג <?php post_type_archive_title(); ?></h1>
-				<?php elseif (is_tax('product_cat')):?>
-					<h1><?php single_cat_title(); ?></h1>
-				<?php elseif (is_404()):?>
-					<h1><?php _e( 'Epic 404 - Article Not Found', 'bonestheme' ); ?></h1>					
-				<?php else:?>
+				<?php elseif (is_singular('projects')): 
+					$project_logo = get_field('project_logo');?>
+					<div class="hero-text">
+						<?php if ($project_logo) {
+							echo '<img src="'.$project_logo['url'].'"/>';
+						}?>
+						<h1><?php the_title();?></h1>
+					</div>	
+				<?php else:
+					echo'<div class="hero-text">';
+					if (is_home()):?>
+						<h1>מאמרים</h1>
+					<?php elseif (is_post_type_archive()):?>
+						<h1><?php post_type_archive_title(); ?></h1>
+					<?php elseif (is_tax()):?>
+						<h1><?php single_cat_title(); ?></h1>
+								
+					<?php elseif (is_404()):?>
+						<h1><?php _e( 'Epic 404 - Article Not Found', 'bonestheme' ); ?></h1>					
+					<?php elseif(is_search()):?>
+						<h1><span><?php _e( 'Search Results for:', 'bonestheme' ); ?></span> <?php echo esc_attr(get_search_query()); ?></h1>
+					<?php else:?>
 						<h1><?php the_title();?></h1>
 					<?php endif;?>
-				</div>  
-			
-			</div>			
+					<?php 
+						if (!is_archive() && !is_search()):
+						$intro_title = get_field('intro_title');
+						$intro_text = get_field('intro_text');
+						if ($intro_title){
+							echo '<h2>'.$intro_title.'</h2>';
+						}?>
+						<?php if ($intro_text){
+							echo '<div class="desc">'.$intro_text.'</div>';
+						}
+						endif;
+					echo '</div>';
+					endif;?>
+				</div>  			
+			</div>
+			<?php if (is_front_page()):?>	
+			<div class="top-cta">
+				<div class="container">
+					<h2 class="pull-right">מתעניינים באחד הפרויקטים או רוצים להיות חלק ממשפחת הלקוחות האקסקלוסיבית שלנו?</h2>
+					<a href="<?php echo get_page_link(28); ?>" class="btn btn-large red rounded pull-left">צרו קשר<i class="fa fa-angle-left"></i></a>
+				</div>
+			</div>	
+			<?php endif;?>	

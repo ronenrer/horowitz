@@ -1,6 +1,6 @@
 {
 "CodeKitInfo": "This is a CodeKit 2.x project configuration file. It is designed to sync project settings across multiple machines. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. If you do so, you will likely cause CodeKit to crash. This file is not useful unless accompanied by the project that created it in CodeKit 2. This file is not backwards-compatible with CodeKit 1.x. For more information, see: http:\/\/incident57.com\/codekit",
-"creatorBuild": "19051",
+"creatorBuild": "19102",
 "files": {
 	"\/404.php": {
 		"fileType": 8192,
@@ -11,11 +11,20 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/archive-products.php": {
+	"\/archive-press.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/archive-products.php",
+		"inputAbbreviatedPath": "\/archive-press.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/archive-projects.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/archive-projects.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -58,17 +67,6 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
-		},
-	"\/favicon.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 363,
-		"inputAbbreviatedPath": "\/favicon.png",
-		"outputAbbreviatedPath": "\/favicon.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
 		},
 	"\/footer.php": {
 		"fileType": 8192,
@@ -810,19 +808,19 @@
 		"disableJavascript": 0,
 		"fileType": 1,
 		"ieCompatibility": 1,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/library\/bootstrap\/theme.less",
 		"outputAbbreviatedPath": "\/library\/css\/theme.css",
 		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
+		"outputPathIsSetByUser": 1,
 		"outputStyle": 0,
 		"relativeURLS": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
 		"strictImports": 0,
 		"strictMath": 0,
-		"strictUnits": 0
+		"strictUnits": 1
 		},
 	"\/library\/bootstrap\/thumbnails.less": {
 		"allowInsecureImports": 0,
@@ -962,6 +960,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/library\/css\/font-awesome.min.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/library\/css\/font-awesome.min.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/library\/css\/ie-only.css": {
 		"fileType": 16,
 		"ignore": 0,
@@ -1029,13 +1036,46 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/library\/images\/Artboard 1.jpg": {
+	"\/library\/images\/benefits-img.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 25943,
+		"inputAbbreviatedPath": "\/library\/images\/benefits-img.png",
+		"outputAbbreviatedPath": "\/library\/images\/benefits-img.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/library\/images\/clients-bg.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 144447,
-		"inputAbbreviatedPath": "\/library\/images\/Artboard 1.jpg",
-		"outputAbbreviatedPath": "\/library\/images\/Artboard 1.jpg",
+		"initialSize": 261344,
+		"inputAbbreviatedPath": "\/library\/images\/clients-bg.jpg",
+		"outputAbbreviatedPath": "\/library\/images\/clients-bg.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/library\/images\/construcion-icon--big.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1844,
+		"inputAbbreviatedPath": "\/library\/images\/construcion-icon--big.png",
+		"outputAbbreviatedPath": "\/library\/images\/construcion-icon--big.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/library\/images\/construcion-icon.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 705,
+		"inputAbbreviatedPath": "\/library\/images\/construcion-icon.png",
+		"outputAbbreviatedPath": "\/library\/images\/construcion-icon.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -1051,24 +1091,68 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/library\/images\/instagram.jpg": {
-		"fileType": 16384,
+	"\/library\/images\/gallery1.png": {
+		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 24488,
-		"inputAbbreviatedPath": "\/library\/images\/instagram.jpg",
-		"outputAbbreviatedPath": "\/library\/images\/instagram.jpg",
+		"initialSize": 264790,
+		"inputAbbreviatedPath": "\/library\/images\/gallery1.png",
+		"outputAbbreviatedPath": "\/library\/images\/gallery1.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/library\/images\/login-logo.png": {
+	"\/library\/images\/h-icon.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 6889,
-		"inputAbbreviatedPath": "\/library\/images\/login-logo.png",
-		"outputAbbreviatedPath": "\/library\/images\/login-logo.png",
+		"initialSize": 291,
+		"inputAbbreviatedPath": "\/library\/images\/h-icon.png",
+		"outputAbbreviatedPath": "\/library\/images\/h-icon.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/library\/images\/H-light.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1151,
+		"inputAbbreviatedPath": "\/library\/images\/H-light.png",
+		"outputAbbreviatedPath": "\/library\/images\/H-light.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/library\/images\/header-img.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 49472,
+		"inputAbbreviatedPath": "\/library\/images\/header-img.jpg",
+		"outputAbbreviatedPath": "\/library\/images\/header-img.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/library\/images\/login-icon.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 638,
+		"inputAbbreviatedPath": "\/library\/images\/login-icon.png",
+		"outputAbbreviatedPath": "\/library\/images\/login-icon.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/library\/images\/logo-big.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 13470,
+		"inputAbbreviatedPath": "\/library\/images\/logo-big.png",
+		"outputAbbreviatedPath": "\/library\/images\/logo-big.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -1077,9 +1161,75 @@
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 34726,
+		"initialSize": 6508,
 		"inputAbbreviatedPath": "\/library\/images\/logo.png",
 		"outputAbbreviatedPath": "\/library\/images\/logo.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/library\/images\/logo1.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4151,
+		"inputAbbreviatedPath": "\/library\/images\/logo1.jpg",
+		"outputAbbreviatedPath": "\/library\/images\/logo1.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/library\/images\/logo2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3730,
+		"inputAbbreviatedPath": "\/library\/images\/logo2.jpg",
+		"outputAbbreviatedPath": "\/library\/images\/logo2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/library\/images\/logo3.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4122,
+		"inputAbbreviatedPath": "\/library\/images\/logo3.jpg",
+		"outputAbbreviatedPath": "\/library\/images\/logo3.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/library\/images\/logo4.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 989,
+		"inputAbbreviatedPath": "\/library\/images\/logo4.jpg",
+		"outputAbbreviatedPath": "\/library\/images\/logo4.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/library\/images\/logo4.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2922,
+		"inputAbbreviatedPath": "\/library\/images\/logo4.png",
+		"outputAbbreviatedPath": "\/library\/images\/logo4.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/library\/images\/logo5.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6187,
+		"inputAbbreviatedPath": "\/library\/images\/logo5.png",
+		"outputAbbreviatedPath": "\/library\/images\/logo5.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -1088,163 +1238,86 @@
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 637270,
+		"initialSize": 132435,
 		"inputAbbreviatedPath": "\/library\/images\/MainPic.jpg",
 		"outputAbbreviatedPath": "\/library\/images\/MainPic.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/library\/images\/nira.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 66032,
-		"inputAbbreviatedPath": "\/library\/images\/nira.jpg",
-		"outputAbbreviatedPath": "\/library\/images\/nira.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/library\/images\/nira.png": {
+	"\/library\/images\/marketin-icon-big.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 73112,
-		"inputAbbreviatedPath": "\/library\/images\/nira.png",
-		"outputAbbreviatedPath": "\/library\/images\/nira.png",
+		"initialSize": 699,
+		"inputAbbreviatedPath": "\/library\/images\/marketin-icon-big.png",
+		"outputAbbreviatedPath": "\/library\/images\/marketin-icon-big.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/library\/images\/pattern_bg.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 36811,
-		"inputAbbreviatedPath": "\/library\/images\/pattern_bg.jpg",
-		"outputAbbreviatedPath": "\/library\/images\/pattern_bg.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/library\/images\/pdf_banner.png": {
+	"\/library\/images\/marketin-icon.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 16031,
-		"inputAbbreviatedPath": "\/library\/images\/pdf_banner.png",
-		"outputAbbreviatedPath": "\/library\/images\/pdf_banner.png",
+		"initialSize": 579,
+		"inputAbbreviatedPath": "\/library\/images\/marketin-icon.png",
+		"outputAbbreviatedPath": "\/library\/images\/marketin-icon.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/library\/images\/title_decor.png": {
+	"\/library\/images\/moving-icon-big.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 370,
-		"inputAbbreviatedPath": "\/library\/images\/title_decor.png",
-		"outputAbbreviatedPath": "\/library\/images\/title_decor.png",
+		"initialSize": 2195,
+		"inputAbbreviatedPath": "\/library\/images\/moving-icon-big.png",
+		"outputAbbreviatedPath": "\/library\/images\/moving-icon-big.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/library\/images\/win8-tile-icon.png": {
+	"\/library\/images\/moving-icon.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 5865,
-		"inputAbbreviatedPath": "\/library\/images\/win8-tile-icon.png",
-		"outputAbbreviatedPath": "\/library\/images\/win8-tile-icon.png",
+		"initialSize": 904,
+		"inputAbbreviatedPath": "\/library\/images\/moving-icon.png",
+		"outputAbbreviatedPath": "\/library\/images\/moving-icon.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/library\/images\/כריכה-קידמית-1.jpg": {
+	"\/library\/images\/project-big.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 113869,
-		"inputAbbreviatedPath": "\/library\/images\/כריכה-קידמית-1.jpg",
-		"outputAbbreviatedPath": "\/library\/images\/כריכה-קידמית-1.jpg",
+		"initialSize": 264145,
+		"inputAbbreviatedPath": "\/library\/images\/project-big.jpg",
+		"outputAbbreviatedPath": "\/library\/images\/project-big.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/library\/images\/כריכה-קידמית-2.jpg": {
-		"fileType": 16384,
+	"\/library\/images\/project-logo.png": {
+		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 0,
-		"inputAbbreviatedPath": "\/library\/images\/כריכה-קידמית-2.jpg",
-		"outputAbbreviatedPath": "\/library\/images\/כריכה-קידמית-2.jpg",
+		"initialSize": 3907,
+		"inputAbbreviatedPath": "\/library\/images\/project-logo.png",
+		"outputAbbreviatedPath": "\/library\/images\/project-logo.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/library\/images\/כריכה-קידמית-3.jpg": {
+	"\/library\/images\/project.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 111632,
-		"inputAbbreviatedPath": "\/library\/images\/כריכה-קידמית-3.jpg",
-		"outputAbbreviatedPath": "\/library\/images\/כריכה-קידמית-3.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/library\/images\/כריכה-קידמית-4.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 116588,
-		"inputAbbreviatedPath": "\/library\/images\/כריכה-קידמית-4.jpg",
-		"outputAbbreviatedPath": "\/library\/images\/כריכה-קידמית-4.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/library\/images\/כריכה-קידמית-5.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 113751,
-		"inputAbbreviatedPath": "\/library\/images\/כריכה-קידמית-5.jpg",
-		"outputAbbreviatedPath": "\/library\/images\/כריכה-קידמית-5.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/library\/images\/כריכה-קידמית-6.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 119219,
-		"inputAbbreviatedPath": "\/library\/images\/כריכה-קידמית-6.jpg",
-		"outputAbbreviatedPath": "\/library\/images\/כריכה-קידמית-6.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/library\/images\/כריכה-קידמית-7.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 114640,
-		"inputAbbreviatedPath": "\/library\/images\/כריכה-קידמית-7.jpg",
-		"outputAbbreviatedPath": "\/library\/images\/כריכה-קידמית-7.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/library\/images\/כריכה-קידמית-8.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 66250,
-		"inputAbbreviatedPath": "\/library\/images\/כריכה-קידמית-8.jpg",
-		"outputAbbreviatedPath": "\/library\/images\/כריכה-קידמית-8.jpg",
+		"initialSize": 29842,
+		"inputAbbreviatedPath": "\/library\/images\/project.jpg",
+		"outputAbbreviatedPath": "\/library\/images\/project.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -1425,15 +1498,6 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/page-fullwidth.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/page-fullwidth.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/page-home.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -1493,11 +1557,29 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/sidebar-project.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/sidebar-project.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/sidebar.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/sidebar.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/single-projects.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/single-projects.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -1520,11 +1602,11 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/taxonomy-product_cat.php": {
+	"\/taxonomy-project_status.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/taxonomy-product_cat.php",
+		"inputAbbreviatedPath": "\/taxonomy-project_status.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -1541,14 +1623,14 @@
 	},
 "hooks": [
 	],
-"lastSavedByUser": "admin",
+"lastSavedByUser": "Ronen",
 "manualImportLinks": {
 	},
 "projectAttributes": {
 	"bowerAbbreviatedPath": "",
-	"displayValue": "aeroplane-litaf",
+	"displayValue": "horowitz",
 	"displayValueWasSetByUser": 0,
-	"iconImageName": "compass_darkGray"
+	"iconImageName": "compass_orange"
 	},
 "projectSettings": {
 	"alwaysUseExternalServer": 1,
@@ -1556,7 +1638,7 @@
 	"autoApplyPSLanguageSettingsStyle": 0,
 	"autoprefixerBrowserString": "> 1%, last 2 versions, Firefox ESR, Opera 12.1",
 	"autoSyncProjectSettingsFile": 1,
-	"browserRefreshDelay": 0.5,
+	"browserRefreshDelay": 0,
 	"coffeeAutoOutputPathEnabled": 1,
 	"coffeeAutoOutputPathFilenamePattern": "*.js",
 	"coffeeAutoOutputPathRelativePath": "",
@@ -1641,8 +1723,16 @@
 			"active": 0,
 			"flagValue": -1
 			},
+		"no_nested_string_interpolation": {
+			"active": 1,
+			"flagValue": -1
+			},
 		"no_plusplus": {
 			"active": 0,
+			"flagValue": -1
+			},
+		"no_private_function_fat_arrows": {
+			"active": 1,
 			"flagValue": -1
 			},
 		"no_stand_alone_at": {
@@ -1651,6 +1741,10 @@
 			},
 		"no_tabs": {
 			"active": 1,
+			"flagValue": -1
+			},
+		"no_this": {
+			"active": 0,
 			"flagValue": -1
 			},
 		"no_throwing_strings": {
@@ -1693,7 +1787,7 @@
 	"coffeeMinifyOutput": 1,
 	"coffeeOutputStyle": 0,
 	"coffeeSyntaxCheckerStyle": 1,
-	"externalServerAddress": "http:\/\/localhost:8888",
+	"externalServerAddress": "http:\/\/localhost:7777",
 	"externalServerPreviewPathAddition": "",
 	"genericWebpageFileExtensionsString": "html, htm, shtml, shtm, xhtml, php, jsp, asp, aspx, erb, ctp",
 	"hamlAutoOutputPathEnabled": 1,
@@ -2167,7 +2261,9 @@
 	"typescriptAutoOutputPathStyle": 2,
 	"typescriptCreateDeclarationFile": 0,
 	"typescriptCreateSourceMap": 0,
+	"typescriptJSXMode": 0,
 	"typescriptMinifyOutput": 0,
+	"typescriptModuleResolutionType": 0,
 	"typescriptModuleType": 0,
 	"typescriptNoImplicitAny": 0,
 	"typescriptPreserveConstEnums": 0,

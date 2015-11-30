@@ -50,9 +50,10 @@ require_once('wp_bootstrap_navwalker.php');
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
-add_image_size( 'bones-thumb-600', 600, 150, true );
-add_image_size( 'bones-thumb-300', 300, 100, true );
-add_image_size( 'bones-thumb-167', 167, 215, true );
+add_image_size( 'bones-thumb-550', 550, 600, true );
+add_image_size( 'bones-thumb-360', 360, 180, true );
+add_image_size( 'bones-thumb-180', 180, 120, true );
+
 /*
 to add more sizes, simply copy a line from above
 and change the dimensions & name. As long as you
@@ -88,51 +89,14 @@ function bones_register_sidebars() {
 		'after_title' => '</h4>',
 	 ));
 	register_sidebar(array(
-		'id' => 'events',
-		'name' => __( 'Today Events', 'bonestheme' ),
-		'description' => __( 'Today Events', 'bonestheme' ),
+		'id' => 'sidebar_project',
+		'name' => __( 'Single Project Sidebar', 'bonestheme' ),
+		'description' => __( '', 'bonestheme' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 	 ));
-
-	register_sidebar(array(
-		'id' => 'footer1',
-		'name' => __( 'Footer Column  1', 'bonestheme' ),
-		'description' => __( 'Footer Column 1 Widgets.', 'bonestheme' ),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
-	));
-	register_sidebar(array(
-		'id' => 'footer2',
-		'name' => __( 'Footer Column  2', 'bonestheme' ),
-		'description' => __( 'Footer Column 2 Widgets.', 'bonestheme' ),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
-	));
-	register_sidebar(array(
-		'id' => 'footer3',
-		'name' => __( 'Footer Column  3', 'bonestheme' ),
-		'description' => __( 'Footer Column 3 Widgets.', 'bonestheme' ),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
-	));
-	register_sidebar(array(
-		'id' => 'footer4',
-		'name' => __( 'Footer Column  4', 'bonestheme' ),
-		'description' => __( 'Footer Column 4 Widgets.', 'bonestheme' ),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
-	));
 
 } // don't remove this bracket!
 
@@ -237,7 +201,7 @@ $args = array(
   		$more= ' נוספים';
   	}
 	echo '<section class="recent-posts clearfix">';
-	echo '<h2>מאמרים'.$more. ' בנושא קריאה</h2>';
+	echo '<h2 class="fancy-header">מאמרים'.$more. ' בנושא קריאה</h2>';
 	echo '<div class="row">';
 	while ($the_query -> have_posts()) : $the_query -> the_post();
 		$post_link = get_the_permalink();
@@ -256,35 +220,64 @@ $args = array(
 	 endif;
 	wp_reset_postdata();	
 }
-function ap_recent_products() {
-		$args =   array('post_type' => 'products');
-		$product_query = new WP_Query($args);
-	  	if ($product_query-> have_posts()):
-	  		if (!is_front_page()) {
-	  			echo '<section class="our-products clearfix">';
-	  			echo '<h2>קטלוג מוצרים</h2>';
-	  		}
-   		 echo '<div id="productSlider" style="display:none;">';									     
+function ap_recent_projects() {
+		$args =   array(
+			'post_type' => 'projects',
+			'posts_per_page'=> 3,
+			'meta_query' => array(
+			array(
+				'key' => 'home_display',
+				'value' => '1',
+				'compare' => '=='
+				)
+			)
+			);
+		$project_query = new WP_Query($args);
+	  	if ($project_query-> have_posts()):
+		echo '<section class="our-projects clearfix">';
+		echo '<div class="container">';
+		echo '<h2 class="fancy-header">פרוייקטים<span><i class="fa fa-angle-down"></i></span></h2>';
+   		 echo '<div class="row">';									     
 	      	$i = 1;
-	      	while ($product_query -> have_posts()) : $product_query -> the_post(); 
+	      	while ($project_query -> have_posts()) : $project_query -> the_post(); 
 	      	$postid = get_the_ID();
-	      	$product_link = home_url(). '/קטלוג-מוצרים/#post-'.$postid;
-			$product_title = get_the_title();
-			$post_img = get_the_excerpt();
-		   	echo '<div>';
+	      	$project_link = get_the_permalink();
+			$project_title = get_the_title();
+			$project_excerpt = get_the_excerpt();
+			$project_logo = get_field('project_logo');
+		   	echo '<div class="col-sm-4 item">';
+		   	echo '<div class="item_container">';
+		   	if($project_logo){
+		   		echo '<div class="project-logo pull-right">';
+		   		echo '<img src="'.$project_logo['url'].'">';
+		   		echo '</div>';
+		   	}
+		   	echo '<h4>'. $project_title.'</h4>';
+		   	echo '<div class="clearfix"></div>';
+		   	echo '<p>'.$project_excerpt.'</p>';
 	        echo '<div class="image-container">';
-	        the_post_thumbnail('bones-thumb-167');
+	        the_post_thumbnail('bones-thumb-360');
 	        echo '</div>';
-	       	echo '<h4>'. $product_title.'</h4>';
-	        echo '<a class="view" href="'.$product_link.'">לעפרטים נוספים</a>';
+	        $terms = get_the_terms( get_the_ID(), 'project_status');
+			// we will use the first term to load ACF data from
+			if( !empty($terms) ) {
+				
+				$term = array_pop($terms);
+				$status_icon = get_field('status_icon', $term);
+				$status_img = '<img src="'.$status_icon['url'].'"/>';
+			}	
+			echo '<div class="meta">';	
+	        echo '<span class="status">'.get_the_term_list( $post->ID, 'project_status',$status_img).'</span>';
+	        echo '<a class="more pull-left" href="'.$project_link.'">לפרטים על הפרוייקט</a>';
+	        echo '</div>';
+	        echo '</div>';
 			echo '</div>';									       	
 		     $i++; endwhile;
 		 echo '</div>';
-		 echo '<p class="text-center"><a class="btn btn-primary btn-large" href="'.home_url().'/קטלוג-מוצרים/">לקטלוג המלא</a>';
-		 if (!is_front_page()) {
-	  			echo '</section>';
-	  		}
-	endif;
+		// echo '<p class="text-center"><a class="btn btn-primary btn-large" href="'.home_url().'/קטלוג-מוצרים/">לקטלוג המלא</a>';
+		echo '</div>';
+		echo '</section>';
+	  	endif;
 	wp_reset_postdata();
 }	
   /* Custom Taxonomy list */
@@ -292,12 +285,12 @@ function ap_recent_products() {
    add_action('aerop_termlist', 'list_terms' , 10);
   // creating the function
   function list_terms(){
-    $terms = get_terms("product_cat", $args = array('orderby' => 'menu_order','order' => 'ASC', "parent" => 0));
+    $terms = get_terms("project_status", $args = array('orderby' => 'menu_order','order' => 'ASC', "parent" => 0));
     $currentterm = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
     echo '<ul class="cat-list">';
 	foreach ($terms as $key => $term) : 
-		$term = sanitize_term( $term, 'product_cat' );
-		$term_link = get_term_link( $term, 'product_cat' );
+		$term = sanitize_term( $term, 'project_status' );
+		$term_link = get_term_link( $term, 'project_status' );
 		 $class = $currentterm->slug == $term->slug ? 'current' : '' ;	
 		if ($terms):
 			echo '<li class="' .$class.'""><a href="' . esc_url( $term_link ) . '">' . $term->name .'</a></li>';
@@ -312,7 +305,7 @@ function ap_recent_products() {
                return false;  // we're elsewhere
 };
 
-
+add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
 //Custom Taxonomy Query
 add_action( 'pre_get_posts', 'custom_query_vars' );
 function custom_query_vars( $query ) {
@@ -346,4 +339,15 @@ function change_post_object_label() {
 }
 add_action( 'init', 'change_post_object_label' );
 add_action( 'admin_menu', 'change_post_menu_label' );
+
+function customize_customtaxonomy_archive_display ( $query ) {
+    if (($query->is_main_query()) && (is_tax('project_status')))
+         
+    $query->set( 'orderby', 'menu_order' );
+    $query->set( 'order', 'ASC' );
+}
+ 
+//Hook the function
+ 
+add_action( 'pre_get_posts', 'customize_customtaxonomy_archive_display' );
 ?>

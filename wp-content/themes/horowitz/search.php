@@ -2,15 +2,13 @@
 
 			<div id="content">
 
-				<div id="inner-content" class="wrap clearfix">
+				<div id="inner-content" class="container clearfix">
 
-					<div id="main" class="eightcol first clearfix" role="main">
-						<h1 class="archive-title"><span><?php _e( 'Search Results for:', 'bonestheme' ); ?></span> <?php echo esc_attr(get_search_query()); ?></h1>
-
+					<div id="main" class="clearfix" role="main">
+						
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
-
 								<header class="article-header">
 
 									<h3 class="search-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
@@ -61,8 +59,6 @@
 							<?php endif; ?>
 
 						</div>
-
-							<?php get_sidebar(); ?>
 
 					</div>
 

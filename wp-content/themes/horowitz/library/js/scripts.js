@@ -79,13 +79,22 @@ jQuery(document).ready(function($) {
    * Let's fire off the gravatar function
    * You can remove this if you don't need it
   */
-  if( viewport.width >= 980 ) {    
-    $('#menu-main .dropdown').hover(function() {
+  if( viewport.width > 768 ) {    
+    $('.navbar-nav .dropdown').hover(function() {
       $(this).find('.dropdown-menu').first().stop(true, true).slideDown(100);
     }, function() {
       $(this).find('.dropdown-menu').first().stop(true, true).slideUp(110);
     });
-    
+    $(window).scroll(function() {
+      var windscroll = $(window).scrollTop();
+      if (windscroll >= 50) {
+          $('.header nav').addClass('fixed');
+
+      } else {
+          $('.header nav').removeClass('fixed');
+      }
+
+  }).scroll();
 }
 
   $('.panel-heading a').each(function() {
@@ -176,5 +185,8 @@ $(window).resize(function() {
    equalheight('.recent-posts  [class^="col-"]');
 
 });
- 
+ $(".top-search").click(function(e){
+      e.preventDefault();
+      $("#search-form").fadeToggle();
+     });
 }); /* end of as page load scripts */

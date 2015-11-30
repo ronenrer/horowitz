@@ -25,24 +25,24 @@ function bones_flush_rewrite_rules() {
 // let's create the function for the custom type
 function custom_post() { 
 	// creating (registering) the custom type 
-	register_post_type( 'products', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
+	register_post_type( 'projects', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
 		// let's now add all the options for this post type
 		array( 'labels' => array(
-			'name' => __( 'מוצרים', 'bonestheme' ), /* This is the Title of the Group */
-			'singular_name' => __( 'מוצר', 'bonestheme' ), /* This is the individual type */
-			'all_items' => __( 'כל המוצרים', 'bonestheme' ), /* the all items menu item */
+			'name' => __( 'פרוייקטים', 'bonestheme' ), /* This is the Title of the Group */
+			'singular_name' => __( 'פרוייקט', 'bonestheme' ), /* This is the individual type */
+			'all_items' => __( 'כל הפרוייקטים', 'bonestheme' ), /* the all items menu item */
 			'add_new' => __( 'הוסף חדש', 'bonestheme' ), /* The add new menu item */
-			'add_new_item' => __( 'הוסף מוצר חדש', 'bonestheme' ), /* Add New Display Title */
+			'add_new_item' => __( 'הוסף פרוייקט חדש', 'bonestheme' ), /* Add New Display Title */
 			'edit' => __( 'ערוך', 'bonestheme' ), /* Edit Dialog */
-			'edit_item' => __( 'ערוך מוצר', 'bonestheme' ), /* Edit Display Title */
-			'new_item' => __( 'מוצר חדש', 'bonestheme' ), /* New Display Title */
-			'view_item' => __( 'צפה במוצר', 'bonestheme' ), /* View Display Title */
-			'search_items' => __( 'חפש מוצרים', 'bonestheme' ), /* Search Custom Type Title */ 
+			'edit_item' => __( 'ערוך פרוייקט', 'bonestheme' ), /* Edit Display Title */
+			'new_item' => __( 'פרוייקט חדש', 'bonestheme' ), /* New Display Title */
+			'view_item' => __( 'צפה בפרוייקט', 'bonestheme' ), /* View Display Title */
+			'search_items' => __( 'חפש פרוייקטים', 'bonestheme' ), /* Search Custom Type Title */ 
 			'not_found' =>  __( 'Nothing found in the Database.', 'bonestheme' ), /* This displays if there are no entries yet */ 
 			'not_found_in_trash' => __( 'Nothing found in Trash', 'bonestheme' ), /* This displays if there is nothing in the trash */
 			'parent_item_colon' => ''
 			), /* end of arrays */
-			'description' => __( 'קטלוג מוצרים', 'bonestheme' ), /* Custom Type Description */
+			'description' => __( 'פרוייקטים', 'bonestheme' ), /* Custom Type Description */
 			'public' => true,
 			'publicly_queryable' => true,
 			'exclude_from_search' => false,
@@ -50,8 +50,8 @@ function custom_post() {
 			'query_var' => true,
 			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */ 
 			'menu_icon' => get_stylesheet_directory_uri() . '/library/images/custom-post-icon.png', /* the icon for the custom post type menu */
-			'rewrite'	=> array( 'slug' => 'קטלוג-מוצרים', 'with_front' => false ), /* you can specify its url slug */
-			'has_archive' => 'קטלוג-מוצרים', /* you can rename the slug here */
+			'rewrite'	=> array( 'slug' => 'פרוייקטים', 'with_front' => false ), /* you can specify its url slug */
+			'has_archive' => true, /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
@@ -59,10 +59,39 @@ function custom_post() {
 		) /* end of options */
 	); /* end of register post type */
 	
-	/* this adds your post categories to your custom post type */
-	//register_taxonomy_for_object_type( 'category', 'custom_type' );
-	/* this adds your post tags to your custom post type */
-	//register_taxonomy_for_object_type( 'post_tag', 'custom_type' );
+	register_post_type( 'press', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
+		// let's now add all the options for this post type
+		array( 'labels' => array(
+			'name' => __( 'מן התקשורת', 'bonestheme' ), /* This is the Title of the Group */
+			'singular_name' => __( 'פרסום', 'bonestheme' ), /* This is the individual type */
+			'all_items' => __( 'כל הפרסומים', 'bonestheme' ), /* the all items menu item */
+			'add_new' => __( 'הוסף חדש', 'bonestheme' ), /* The add new menu item */
+			'add_new_item' => __( 'הוסף פרסום חדש', 'bonestheme' ), /* Add New Display Title */
+			'edit' => __( 'ערוך', 'bonestheme' ), /* Edit Dialog */
+			'edit_item' => __( 'ערוך פרסום', 'bonestheme' ), /* Edit Display Title */
+			'new_item' => __( 'פרסום חדש', 'bonestheme' ), /* New Display Title */
+			'view_item' => __( 'צפה בפרסום', 'bonestheme' ), /* View Display Title */
+			'search_items' => __( 'חפש פרסומים', 'bonestheme' ), /* Search Custom Type Title */ 
+			'not_found' =>  __( 'Nothing found in the Database.', 'bonestheme' ), /* This displays if there are no entries yet */ 
+			'not_found_in_trash' => __( 'Nothing found in Trash', 'bonestheme' ), /* This displays if there is nothing in the trash */
+			'parent_item_colon' => ''
+			), /* end of arrays */
+			'description' => __( 'מן התקשורת', 'bonestheme' ), /* Custom Type Description */
+			'public' => true,
+			'publicly_queryable' => true,
+			'exclude_from_search' => false,
+			'show_ui' => true,
+			'query_var' => true,
+			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */ 
+			'menu_icon' => get_stylesheet_directory_uri() . '/library/images/custom-post-icon.png', /* the icon for the custom post type menu */
+			'rewrite'	=> array( 'slug' => 'מן-התקשורת', 'with_front' => false ), /* you can specify its url slug */
+			'has_archive' => true, /* you can rename the slug here */
+			'capability_type' => 'post',
+			'hierarchical' => false,
+			/* the next one is important, it tells what's enabled in the post editor */
+			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky')
+		) /* end of options */
+	); /* end of register post type */
 	
 }
 
@@ -74,48 +103,47 @@ function custom_post() {
 	http://codex.wordpress.org/Function_Reference/register_taxonomy
 	*/
 	
-	// now let's add custom categories (these act like categories)
-	register_taxonomy( 'product_cat', 
-		array('products'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
-		array('hierarchical' => true,     /* if this is true, it acts like categories */
-			'labels' => array(
-				'name' => __( 'קטגוריות מוצרים', 'bonestheme' ), /* name of the custom taxonomy */
-				'singular_name' => __( 'קטגורית מוצרים', 'bonestheme' ), /* single taxonomy name */
-				'search_items' =>  __( 'Search Custom Categories', 'bonestheme' ), /* search title for taxomony */
-				'all_items' => __( 'כל הקטגוריות', 'bonestheme' ), /* all title for taxonomies */
-				'parent_item' => __( 'קטגורית אב', 'bonestheme' ), /* parent title for taxonomy */
-				'parent_item_colon' => __( 'קטגורית אב:', 'bonestheme' ), /* parent taxonomy title */
-				'edit_item' => __( 'ערוך קטגוריה', 'bonestheme' ), /* edit custom taxonomy title */
-				'update_item' => __( 'עדכן קטגוריה', 'bonestheme' ), /* update title for taxonomy */
-				'add_new_item' => __( 'הוסף קטגוריה חדשה', 'bonestheme' ), /* add new title for taxonomy */
-				'new_item_name' => __( 'שם קטגוריה חדשה', 'bonestheme' ) /* name title for taxonomy */
-			),
-			'show_admin_column' => true, 
-			'show_ui' => true,
-			'query_var' => true,
-			'rewrite' => array( 'slug' => 'קטגוריות-מוצרים' ),
-		)
-	);
-	
 	// now let's add custom tags (these act like categories)
-	register_taxonomy( 'custom_tag', 
-		array('custom_type'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+	register_taxonomy( 'project_status', 
+		array('projects'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
 		array('hierarchical' => false,    /* if this is false, it acts like tags */
 			'labels' => array(
-				'name' => __( 'Custom Tags', 'bonestheme' ), /* name of the custom taxonomy */
-				'singular_name' => __( 'Custom Tag', 'bonestheme' ), /* single taxonomy name */
-				'search_items' =>  __( 'Search Custom Tags', 'bonestheme' ), /* search title for taxomony */
-				'all_items' => __( 'All Custom Tags', 'bonestheme' ), /* all title for taxonomies */
-				'parent_item' => __( 'Parent Custom Tag', 'bonestheme' ), /* parent title for taxonomy */
-				'parent_item_colon' => __( 'Parent Custom Tag:', 'bonestheme' ), /* parent taxonomy title */
-				'edit_item' => __( 'Edit Custom Tag', 'bonestheme' ), /* edit custom taxonomy title */
-				'update_item' => __( 'Update Custom Tag', 'bonestheme' ), /* update title for taxonomy */
-				'add_new_item' => __( 'Add New Custom Tag', 'bonestheme' ), /* add new title for taxonomy */
-				'new_item_name' => __( 'New Custom Tag Name', 'bonestheme' ) /* name title for taxonomy */
+				'name' => __( 'סטטוס פרוייקט', 'bonestheme' ), /* name of the custom taxonomy */
+				'singular_name' => __( 'סטטוס', 'bonestheme' ), /* single taxonomy name */
+				'search_items' =>  __( 'Search סטטוסים', 'bonestheme' ), /* search title for taxomony */
+				'all_items' => __( 'כל הסטטוסים', 'bonestheme' ), /* all title for taxonomies */
+				'parent_item' => __( 'סטטוס אב', 'bonestheme' ), /* parent title for taxonomy */
+				'parent_item_colon' => __( 'סטטוס אב:', 'bonestheme' ), /* parent taxonomy title */
+				'edit_item' => __( 'ערוך סטטוס', 'bonestheme' ), /* edit custom taxonomy title */
+				'update_item' => __( 'עדכן ססטוס', 'bonestheme' ), /* update title for taxonomy */
+				'add_new_item' => __( 'הוסף סטטוס חדש', 'bonestheme' ), /* add new title for taxonomy */
+				'new_item_name' => __( 'שם סטטוס חדש', 'bonestheme' ) /* name title for taxonomy */
 			),
 			'show_admin_column' => true,
 			'show_ui' => true,
 			'query_var' => true,
+			'rewrite' => array( 'slug' => 'סטטוס-פרוייקט' ),
+		)
+	);
+	register_taxonomy( 'press_project', 
+		array('press'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+		array('hierarchical' => false,    /* if this is false, it acts like tags */
+			'labels' => array(
+				'name' => __( 'פרוייקטים', 'bonestheme' ), /* name of the custom taxonomy */
+				'singular_name' => __( 'פרוייקט', 'bonestheme' ), /* single taxonomy name */
+				'search_items' =>  __( 'Search פרוייקטים', 'bonestheme' ), /* search title for taxomony */
+				'all_items' => __( 'כל הפרוייקטים', 'bonestheme' ), /* all title for taxonomies */
+				'parent_item' => __( 'פרוייקט אב', 'bonestheme' ), /* parent title for taxonomy */
+				'parent_item_colon' => __( 'פרוייקט אב:', 'bonestheme' ), /* parent taxonomy title */
+				'edit_item' => __( 'ערוך פרוייקט', 'bonestheme' ), /* edit custom taxonomy title */
+				'update_item' => __( 'עדכן פרוייקט', 'bonestheme' ), /* update title for taxonomy */
+				'add_new_item' => __( 'הוסף פרוייקט חדש', 'bonestheme' ), /* add new title for taxonomy */
+				'new_item_name' => __( 'שם פרוייקט חדש', 'bonestheme' ) /* name title for taxonomy */
+			),
+			'show_admin_column' => true,
+			'show_ui' => true,
+			'query_var' => true,
+			'rewrite' => array( 'slug' => 'שם-פרוייקט' ),
 		)
 	);
 	

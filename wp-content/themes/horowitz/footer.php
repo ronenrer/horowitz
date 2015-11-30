@@ -1,18 +1,24 @@
+			<div class="top-footer">
+				<div class="container clearfix">
+						<h2>רוצים למצוא את דירת החלומות שלכם?</h2>
+						<p>מלאו את פרטיכם ונחזור אליכם בהקדם</p>
+						<?php gravity_form(1, false, false, false, '', true);?>
+				</div>
+			</div>	
 			<footer class="footer" role="contentinfo">
 				<div id="inner-footer" class="container clearfix">	
-					<?php if (!is_front_page() && !is_tree(208) && !is_singular('post')){
-						ap_recent_products();
-					}else if(is_singular('post')){
-						ap_recent_posts();
-					}
-						?>
-					<div class="top-footer">
-						לתיאום פגישת היכרות עם  ליט"ף:  טל'  03-7512370  /   מייל  litaf@zahav.net.il
-					</div>				
-					<div class="bottom-footer clearfix">
-						<div class="source-org copyright pull-right">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?></div>
-						<div class="credits pull-left">עיצוב + פיתוח: <a href="http://aeroplane.co.il" target="_blank">Aeroplane</a></div>
-						<div class="footer-links pull-left">
+					<div class="row">
+						<div class="col-sm-6 col-md-3 tagline">
+							<h2><?php bloginfo('name')?></h2>
+							<p><?php bloginfo('description')?></p>
+						</div>
+						<div class="col-sm-6 col-md-3 contact-details">
+							זבוטינסקי 7 רמת גן , מגדל אביב קומה 43
+							<a class="footer-tel" href="tel:03-6843000">03-6843000</a>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<div class="footer-links">
+								<a class="share-button"><i class="fa fa-share-square"></i> שתפו ברשת</a>
 							<nav role="navigation">
 								<?php 
 								wp_nav_menu( array(
@@ -28,45 +34,26 @@
 								);
 							?>
 							</nav>
-						</div>						
+						</div>		
+						</div>
+						<div class="col-sm-6 col-md-3 subscribe">
+							רוצים להתעדכן ראשונים אודות פרויקטים חדשים?
+							<form>
+								<input type="email" placeholder="אימייל:">
+								<input class="btn btn-small red" type="submit"  value="הרשמה">
+							</form>
+						</div>
+					</div>					
+				</div>
+				<div class="bottom-footer clearfix">
+					<div class="container">
+						<div class="source-org copyright pull-right">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?></div>
+						<div class="credits pull-left">עיצוב + פיתוח: <a href="http://aeroplane.co.il" target="_blank">Aeroplane</a></div>				
 					</div>
 				</div>
 			</footer>
 
 		<?php // all js scripts are loaded in library/bones.php ?>
-		<?php if (is_front_page()) {
-		    $slidesToShow = '4';
-		  }else{
-		    $slidesToShow = '6';
-		  }?>
-			<script>
-			jQuery(document).ready(function($) {
-				
-				$('#productSlider').slick({
-				    infinite: true,
-				    adaptiveHeight: true,
-				    speed: 300,
-				    slidesToShow: <?php echo $slidesToShow ?>,
-				    slidesToScroll: 1, 
-				    rtl: true,
-				    responsive: [
-		    {
-		      breakpoint: 767,
-		      settings: {
-		        slidesToShow: 3,
-		      }
-		    },
-		    {
-		      breakpoint: 400,
-		      settings: {
-		        slidesToShow: 2
-		      }
-		    }
-	    ]
-				});
-				  $('#productSlider').show(); 
-			 });
-			</script>
 		<?php wp_footer(); ?>
 
 	</body>
