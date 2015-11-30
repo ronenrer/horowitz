@@ -3,28 +3,32 @@
 			<div id="content">
 				
 				<div id="inner-content" class="container clearfix">
-					<?php if (is_tree(4)) {
-						$children = get_pages( 
-						    array(
-						        'sort_column' => 'menu_order',
-						        'sort_order' => 'ASC',
-						        'hierarchical' => 0,
-						        'parent' => 4,
-						        'post_type' => 'page',
-						));
-							echo '<aside class="col-md-3">';
-							echo '<ul class="siblings">';
-						   foreach ($children as $post) {
-									setup_postdata( $post );
-								?>
-							<li>
-								<a href="<?php echo the_permalink();?>">
-									<?php the_title();?>
-								</a>
-					 		</li>	
-							<?php }
-					 echo '</ul></aside>';
-					}?>
+					<?php 
+					$children = get_pages('child_of='.$post->ID);
+					$ancestors = get_post_ancestors($post->ID);
+
+					//Check if the page has children or ancestors if yes, output pages menu.
+					if(!empty($children) or !empty($ancestors)){
+					        global $post;
+					        $parents = get_post_ancestors( $post->ID );
+					        $id = ($parents) ? $parents[count($parents)-1]: $post->ID;
+					        $parent = get_page( $id );
+					        //Variables for adding ancestor page to the menu
+					        $currentUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+					        $parentUrl = get_permalink($id);
+					        $parentTitle = get_the_title($id);
+					    
+					    $args = array('child_of' => $id, 'title_li'=> ''); 
+					?>
+					<aside class="col-md-3">
+						<h3><?php echo $parentTitle; ?></h3>
+						<ul class="siblings">
+					    
+						    <?php /*List subpages*/ wp_list_pages( $args ); ?>
+						    
+						</ul>
+					</aside>
+					<?php } ?>
 					<div id="main"  role="main" <?php if (is_tree(4)){ echo 'class="col-md-9"'; } ?>>
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 						<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">

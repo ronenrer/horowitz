@@ -825,14 +825,22 @@ Pages
 	}
 }
 //ABOUT
+aside h3{
+	color:@brand-light;
+	&:first-child{
+		margin-top:0
+	}
+}
 .siblings{
 	padding:0;
 	list-style:none;
+	padding-left:40px;
 	li{
-		border-bottom:1px solid @brand-accent;
+		margin-bottom:2px;
 		a{
 			display: block;
 			padding:10px 0 ;
+			background: #f5f5f5;
 		}
 	}
 }
