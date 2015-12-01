@@ -13,7 +13,7 @@
 										<h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 										<?php if (has_post_thumbnail()) {?>
 										<div class="image-container">
-									        <?php the_post_thumbnail('bones-thumb-360');?>
+									        <?php the_post_thumbnail('bones-thumb-370');?>
 									     </div>
 										<?php }?>
 										<section class="entry-content clearfix">

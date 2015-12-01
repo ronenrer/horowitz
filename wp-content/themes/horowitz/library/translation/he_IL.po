@@ -13,8 +13,8 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_n\n"
 "X-Poedit-Basepath: /home/fulgor/GIT/bones\n"
 "Last-Translator: Elron <elron100duck@gmail.com>\n"
-"X-Poedit-Language: Hebrew\n"
-"X-Poedit-Country: ISRAEL\n"
+"Language: he_IL\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SearchPath-0: /home/fulgor/GIT/bones\n"
 
 #: comments.php:12
@@ -82,8 +82,7 @@ msgstr "להתנתק"
 msgid "Name"
 msgstr "שם"
 
-#: comments.php:93
-#: comments.php:98
+#: comments.php:93 comments.php:98
 msgid "(required)"
 msgstr "(חובה)"
 
@@ -128,26 +127,19 @@ msgstr "אפשר להשתמש בתגים אלו"
 msgid "Page %s"
 msgstr "עמוד %s"
 
-#: taxonomy-custom_cat.php:22
-#: archive.php:9
+#: taxonomy-custom_cat.php:22 archive.php:9
 msgid "Posts Categorized:"
 msgstr "פוסטים לפי קטגוריות:"
 
-#: taxonomy-custom_cat.php:32
-#: embed-post_meta.php:1
-#: single-custom_type.php:30
+#: taxonomy-custom_cat.php:32 embed-post_meta.php:1 single-custom_type.php:30
 msgid "Posted"
 msgstr "פורסם"
 
-#: taxonomy-custom_cat.php:32
-#: embed-post_meta.php:1
-#: single-custom_type.php:30
+#: taxonomy-custom_cat.php:32 embed-post_meta.php:1 single-custom_type.php:30
 msgid "by"
 msgstr "מאת"
 
-#: taxonomy-custom_cat.php:32
-#: embed-post_meta.php:1
-#: single-custom_type.php:30
+#: taxonomy-custom_cat.php:32 embed-post_meta.php:1 single-custom_type.php:30
 msgid "filed under"
 msgstr "משוייך תחת"
 
@@ -191,8 +183,7 @@ msgstr "לקרוא עוד בנושא"
 msgid "Posts Tagged:"
 msgstr "פוסטים מתוייגים:"
 
-#: archive.php:17
-#: author.php:8
+#: archive.php:17 author.php:8
 msgid "Posts By:"
 msgstr "פוסטים מאת:"
 
@@ -218,7 +209,7 @@ msgstr "תג"
 
 #: embed-tags.php:3
 msgid "Tags"
-msgstr "תגים"
+msgstr "תגיות"
 
 #: image.php:20
 msgid "Read the rest of this entry"
@@ -379,4 +370,3 @@ msgstr "להוסיף תג מיוחד חדש"
 #: library/custom-post-type.php:103
 msgid "New Custom Tag Name"
 msgstr "שם חדש לתג מיוחד"
-

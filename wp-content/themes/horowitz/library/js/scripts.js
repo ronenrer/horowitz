@@ -187,6 +187,6 @@ $(window).resize(function() {
 });
  $(".top-search").click(function(e){
       e.preventDefault();
-      $("#search-form").fadeToggle();
+      $(".navbar-form").fadeToggle();
      });
 }); /* end of as page load scripts */

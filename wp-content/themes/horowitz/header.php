@@ -45,32 +45,33 @@
 					 <div class="container">
 						<div class="row">
 						 	<div class="col-sm-6 toolbar-right">
-						 		<div class="personal pull-left">
-						 			<a href=""><span class="icon-login"></span> כניסת לקוחות</a>					 			
-						 		</div>
-						 		<div class="search pull-left">
+						 		<div class="search pull-right">
 						 			<a class="top-search" href=""><i class="fa fa-search"></i></a>
 						 		</div>
-						 		<form style="display:none;" id="search-form" class="navbar-form pull-right" role="search" method="get" action="<?php echo home_url(
-						 		 ); ?>">
-									<input type="text" name="s" id="s" class="input-medium">
-									<button type="submit" class="btn"><i class="fa fa-search"></i></button>
-								</form><!-- .navbar-form -->
+						 		<div class="personal pull-right">
+						 			<a href=""><span class="icon-login"></span> כניסת לקוחות</a>					 			
+						 		</div>
 						 	</div>
 							<div class="col-sm-6 toolbar-left">
-								<div class="top-phone pull-right">
-									<a href="tel:03-6843000">03-6843000 <i class="fa fa-phone"></i></a>
+								<div class="social pull-left">
+									<li><a href="https://www.facebook.com/%D7%A7%D7%91%D7%95%D7%A6%D7%AA-%D7%94%D7%95%D7%A8%D7%95%D7%91%D7%99%D7%A5-Horowitz-group-725586730889156/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+									<!--<li><a href="" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+									<li><a href="" target="_blank"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="" target="_blank"><i class="fa fa-instagram"></i></a></li>
+									<li><a href="" target="_blank"><i class="fa fa-youtube"></i></a></li>-->
 								</div>
-								<div class="social pull-right">
-									<li><a href=""><i class="fa fa-facebook"></i></a></li>
-									<li><a href=""><i class="fa fa-google-plus"></i></a></li>
-									<li><a href=""><i class="fa fa-twitter"></i></a></li>
-									<li><a href=""><i class="fa fa-instagram"></i></a></li>
-									<li><a href=""><i class="fa fa-youtube"></i></a></li>
+								<div class="top-phone pull-left">
+									<a href="tel:03-6843000">03-6843000 <i class="fa fa-phone"></i></a>
 								</div>
 							</div>
 						</div>
 					 </div>
+					 <div class="navbar-form" style="display:none;">
+				 		<form  id="search-form"  role="search" method="get" action="<?php echo home_url(); ?>">
+							<input type="text" value="<?php echo  get_search_query()?>" name="s" id="s" placeholder="<?php echo  esc_attr__( 'Search the Site...', 'bonestheme' ); ?>" />
+							<button type="submit" class="btn"><i class="fa fa-search"></i></button>
+						</form><!-- .navbar-form -->
+					</div>
 				</div>
 				<nav>
       			  <div class="container">

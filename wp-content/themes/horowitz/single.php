@@ -4,17 +4,11 @@
 
 				<div id="inner-content" class="container clearfix">
 						
-						<div id="main"  role="main">
+						<div id="main"  role="main" class="col-md-9">
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
-
-								<header class="article-header text-center">
-
-									<h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
-
-								</header>
 
 								<?php if( have_rows('column_content') ): ?>
 								<section class="entry-content row clearfix" itemprop="articleBody">
@@ -31,7 +25,7 @@
 								</section>
 
 								<footer class="article-footer">
-									<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
+									<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'תגיות:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
 
 								</footer>
 
@@ -57,8 +51,7 @@
 						<?php endif; ?>
 
 					</div>
-
-
+					<?php get_sidebar(); ?>
 				</div>
 
 			</div>

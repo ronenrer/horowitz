@@ -1,15 +1,22 @@
-<?php get_header(); ?>
-
+<?php 
+get_header();
+$project_url = get_field('project_url');
+$plan_link = get_field('plan_link');
+$specifications_link = get_field('specifications_link');
+ ?>
 			<div id="content">
 
 				<div id="inner-content" class="container clearfix">
 					<div class="project-links row">
+						<?php if ( function_exists('yoast_breadcrumb') ) ?>
 						<div class="col-sm-6">
-							<p id="breadcrumbs"></p>
+						<?php 	{yoast_breadcrumb('<p id="breadcrumbs">','</p>');} ?>
 						</div>
+						<?php if ($project_url){?>
 						<div class="external-link col-sm-3 pull-left">
-							<a href="" class="btn btn-large red pull-left">לאתר הפרוייקט <i class="fa  fa-external-link"></i></a>
+							<a href="<?php echo $project_url ?>" class="btn btn-large red pull-left">לאתר הפרוייקט <i class="fa  fa-external-link"></i></a>
 						</div>
+						<?php }?>						
 					</div>
 					<div class="row">
 						<div id="main"  role="main" class="col-lg-10">
@@ -24,17 +31,19 @@
 										<div id="projectGallery" style="display:none">
 											<?php 
 											 foreach( $images as $image ): 
-											 	$image_thb = wp_get_attachment_image_src($image['id'], 'bones-thumb-165');
+											 	$image_thb = wp_get_attachment_image_src($image['id'], 'bones-thumb-180');
 												 $image_full = wp_get_attachment_image_src($image['id'], 'full'); ?>
 												 <div><img src="<?php echo $image_full[0]; ?>" class="attachment-thumbnail" /></div>
 											      <?php $thumbs = $thumbs.'<li><img src="'.$image_thb[0].'" class="attachment-thumbnail" /></li>';
 											 endforeach; ?>
 										</div>
 										 <?php echo $thumbs.'</ul>';?>
+										 <?php if ($plan_link || $specifications_link ){?>
 										 <div class="modal-links clearfix">
-										 	<a href="" class="btn btn-default btn-large pull-right">תכניות הדירה <i class=" fa fa-pencil-square-o"></i></a>
-										 	<a href="" class="btn btn-primary btn-large pull-left">מפרט טכני <i class=" fa fa-file-text"></i></a>
+										 	 <?php if ($plan_link){?><a href="" class="btn btn-default btn-large pull-right">תכניות הדירה <i class=" fa fa-pencil-square-o"></i></a><?php }  ?>
+										 	<?php if ($specifications_link){?><a href="" class="btn btn-primary btn-large pull-left">מפרט טכני <i class=" fa fa-file-text"></i></a> <?php }  ?>
 										 </div>
+										 <?php }?>
 									</section>
 									<script>
 										jQuery(document).ready(function($) {

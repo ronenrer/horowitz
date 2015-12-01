@@ -211,12 +211,6 @@ img{max-width:100%;height:auto;}
  }
 .top-header{
 	background:#f5f5f5;
-	 @media (min-width: @grid-float-breakpoint) {
-	 	height:50px;
-	 	line-height:50px;
-	 	.toolbar-right{padding-left:125px}
-	 	.toolbar-left{padding-right:125px}
-	 }
 	 .personal{
 	 	margin-right:20px;
 	 	a{
@@ -246,6 +240,35 @@ img{max-width:100%;height:auto;}
  			text-align: center;
 	 	}
 	 }
+	 .navbar-form{
+		 position: absolute;
+	    top: 50px;
+	    margin: 0;
+	    padding: 40px;
+	    height: 130px;
+	    width: 100%;
+	    background: #4A4A4A;
+	    z-index: 100;
+	    text-align: center;
+	    input,.btn{
+	    	background:none;
+	    	border:0;
+	    	font-size:30px;
+	    }
+	    input[type="text"]{
+	    	width:50%;
+	    	border-bottom:1px solid #fff;
+	    	color:#fff;
+	    	outline:0 !important;
+	    }
+	    .placeholder{color:#fff;}
+		::-webkit-input-placeholder{color:#fff !important}
+	    .btn{
+	    	color:#fff;
+	    	&:hover{color:@brand-accent;}
+	    }
+	    	
+	}	
 	 .top-phone{
 	 	color:@brand-accent;
 	 	margin-left:20px;
@@ -278,6 +301,16 @@ img{max-width:100%;height:auto;}
 	 		}
 	 	}
 	 }
+	 @media (min-width: @grid-float-breakpoint) {
+	 	height:50px;
+	 	line-height:50px;
+	 	.toolbar-right{padding-left:125px}
+	 	.toolbar-left{padding-right:125px}
+	 }
+	 @media (min-width:@screen-lg-desktop){
+		.toolbar-right{padding-right:10%}
+		.toolbar-left{padding-left:10%}
+	}
 }
 
  // MAIN MENU
@@ -329,7 +362,7 @@ img{max-width:100%;height:auto;}
 							color:@brand-accent;
 						}
 					}
-					&:hover,&.current-menu-item,&.current-menu-ancestor{
+					&:hover,&.current-menu-item,&.current-menu-ancestor,&.current-page-ancestor{
 						> a{
 							background:#fff !important;
 							color:@brand-accent;
@@ -448,6 +481,10 @@ img{max-width:100%;height:auto;}
    		margin-top: -4px;
 	}
 }
+#breadcrumbs{
+	font-size: 13px;
+	line-height:50px;
+}
 #inner-content{
 	padding: 30px 0;
 	 @media (min-width: @grid-float-breakpoint){
@@ -478,10 +515,14 @@ img{max-width:100%;height:auto;}
 		background: @brand-accent;
 		padding:5px 10px;
 	}
-	.status a{
-		font-size: 14px;
-	    border: 1px solid;
-	    padding: 3px 10px 6px;
+	.status {
+		img{width:34px;}
+		a{
+			font-size: 14px;
+		    border: 1px solid;
+		    padding: 3px 10px 6px;
+		    margin-right:-1px;
+		}
 	} 
 }
 .home{
@@ -507,8 +548,10 @@ img{max-width:100%;height:auto;}
 	.our-projects{
 		background:#f4f4f4;
 		.item{
-			border-left:1px solid @gray-light;
+			    border-left: 2px solid #E8E8E8;
+   				border-right: #FDFDFD 2px solid;
 			&:last-child{border-left:0;}
+			&:first-child{border-right: 0;}
 			.item_container{padding:0 10px;}
 			.project-logo{
 				border-radius:50%;
@@ -627,8 +670,46 @@ img{max-width:100%;height:auto;}
 }
 .team{
 	.employee{
-		h3{margin-top:0}
-		p{font-size:14px;}
+		margin-bottom:20px;
+		h3{margin:0}
+		h5{
+			margin-top:0;
+			&:before{
+				content:'';
+				width:30px;
+				height:2px;
+				background:@brand-accent;
+				display:block;
+				margin:5px auto;
+			}
+		}
+		p{font-size:14px;margin-bottom:6px;}
+		.employee-contact{
+			font-size:12px;
+		}
+		&:not(.ceo){
+			text-align: center;
+			background:@brand-primary;
+			.bio{
+				padding:10px;
+			}
+			h5,h3{color:#fff;}
+			h5{margin-bottom:5px;}
+			a{
+				color:#fff;
+				i{color:@brand-accent;display: block;}
+			}
+		}
+		&.ceo{
+			margin:0 0 40px;
+			h3{margin-top:-6px;}
+			h5:before{
+				margin:5px 0;
+			}
+			.employee-contact{
+				i{margin-left:10px;}
+			}
+		}
 	}
 }
 .recent-posts{
@@ -637,8 +718,6 @@ img{max-width:100%;height:auto;}
 	}
 	.item{
 		height:100%;
-		padding:20px;
-		border:1px solid #3d970c;
 		.btn{margin-top:15px;}
 		h3{
 		margin-top:0;
@@ -658,17 +737,24 @@ img{max-width:100%;height:auto;}
 		&:nth-child(3n+0) .item{border-color:#ff8500}
 	}
 }
+.widget_recent_entries{
+	ul{
+		list-style: none;
+	}
+}
 /*******************
 Pages
 ********************/
 .entry-content{
 	h2,h3{color:@brand-light;}
 	h2{
-		font-size:@font-size-h2;
-		margin-bottom:20px;
+		font-size:32px;
+		margin-bottom:10px;
 		}
-	} 
 	p{line-height:1.7;}
+	> *:first-child{margin-top:0;}
+	} 
+
 .article-header{
 	position:relative;
 	@media (min-width: @grid-float-breakpoint){
@@ -726,6 +812,17 @@ Pages
 		@media (min-width: @screen-md){
 		}
 	}
+.post-type-archive-projects{
+	.cat-item{
+		text-align: center;
+		padding:15px;
+		@media (min-width: @grid-float-breakpoint){
+			border-left:1px solid #ccc;
+			&:nth-child(3n+3){border-left:0;}
+		}
+		&:hover{background: #f7f7f7;}
+	}
+}
 .project-container{
 	article{
 		margin-bottom:40px;
@@ -752,7 +849,7 @@ Pages
 			background:rgba(255, 255, 255, 0.85);
 			&:after{display: none;}
 			h1{
-				background: @brand-light;
+				background: rgba(0, 91, 169, 0.8);
 				font-size: 22px;
 				color:#fff;
 				padding:8px 15px; 
@@ -784,12 +881,22 @@ Pages
 		.btn{width:49%;}
 	}
 	.intro{
-		h2{margin-top:-6px;}
+		h2{
+			margin-top:-6px;
+			padding-left:120px;
+		}
 	}
-	.status a{
-	    padding: 4px 10px 5px;
-	    font-size: 14px;
-	    border: 1px solid;
+	.status {
+		position:absolute;
+		top:0;
+		left:0;
+		img{width:34px;}
+		a{
+		    padding: 4px 10px 5px;
+		    font-size: 14px;
+		    border: 1px solid;
+		    margin-right:-1px;
+		}
 	} 
 	.project-contact{
 		background: #f5f5f5;
@@ -826,7 +933,6 @@ Pages
 }
 //ABOUT
 aside h3{
-	color:@brand-light;
 	&:first-child{
 		margin-top:0
 	}
@@ -836,11 +942,36 @@ aside h3{
 	list-style:none;
 	padding-left:40px;
 	li{
+		position: relative;
 		margin-bottom:2px;
 		a{
 			display: block;
-			padding:10px 0 ;
+			padding:0 10px ;
+			line-height:40px;
 			background: #f5f5f5;
+			color:@text-color;
+			&:hover{
+				text-decoration: none;
+				background:#f1f1f1;
+				color:@brand-accent;
+			}
+		}
+		&.current_page_item{
+			a{
+				background:@brand-accent;
+				color:#fff;
+			}
+			&:after{
+				content:'';
+				position: absolute;
+				top:0;
+				right:100%;
+				width: 0; 
+				height: 0; 
+				border-top: 20px solid transparent;
+				border-bottom: 20px solid transparent;
+				border-right: 10px solid @brand-accent;
+			}
 		}
 	}
 }
@@ -1013,11 +1144,6 @@ FOOTER
   }
   
  @media (min-width: @grid-float-breakpoint) and (max-width: @screen-md){ 
- 	.tagline{
- 		position: absolute;
-		  top: 60px;
-		  right: 265px;
-	}
 	.site-phone{
 		margin-left:60px;
 		span{display: inline-block !important}
@@ -1044,9 +1170,6 @@ FOOTER
 	
 @media (min-width:@screen-lg-desktop){
 	
-	ul#menu-main{
-		
-	}
 	.site-phone span{display:inline !important;}
 }
 @media (min-width:1400px){

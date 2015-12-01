@@ -1,17 +1,9 @@
 				<div id="sidebar1" class="sidebar col-sm-3 clearfix" role="complementary">
-			
-					<?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
-
-						<?php dynamic_sidebar( 'sidebar1' ); ?>
-
-					<?php else : ?>
-
-						<?php // This content shows up if there are no widgets defined in the backend. ?>
-
-						<div class="alert alert-help">
-							<p><?php _e( 'Please activate some Widgets.', 'bonestheme' );  ?></p>
-						</div>
-
-					<?php endif; ?>
-
+					
+					<?php 
+					if (is_singular('press')):
+						list_terms();
+					 else :	
+					 	if ( is_active_sidebar( 'sidebar1' ) ) : dynamic_sidebar( 'sidebar1' ); endif;
+					 endif;?>
 				</div>

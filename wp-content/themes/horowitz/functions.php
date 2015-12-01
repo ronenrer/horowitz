@@ -51,7 +51,7 @@ require_once('wp_bootstrap_navwalker.php');
 
 // Thumbnail sizes
 add_image_size( 'bones-thumb-550', 550, 600, true );
-add_image_size( 'bones-thumb-360', 360, 180, true );
+add_image_size( 'bones-thumb-370', 370, 185, true );
 add_image_size( 'bones-thumb-180', 180, 120, true );
 
 /*
@@ -144,9 +144,8 @@ function bones_comments( $comment, $args, $depth ) {
 // Search Form
 function bones_wpsearch($form) {
 	$form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-	<label class="screen-reader-text" for="s">' . __( 'Search for:', 'bonestheme' ) . '</label>
 	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="' . esc_attr__( 'Search the Site...', 'bonestheme' ) . '" />
-	<input type="submit" id="searchsubmit" value="' . esc_attr__( 'Search' ) .'" />
+	<input type="submit" id="searchsubmit" class="btn btn-small red" value="' . esc_attr__( 'Search' ) .'" />
 	</form>';
 	return $form;
 } // don't remove this bracket!
@@ -285,13 +284,14 @@ function ap_recent_projects() {
    add_action('aerop_termlist', 'list_terms' , 10);
   // creating the function
   function list_terms(){
-    $terms = get_terms("project_status", $args = array('orderby' => 'menu_order','order' => 'ASC', "parent" => 0));
-    $currentterm = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
-    echo '<ul class="cat-list">';
+    $terms = get_terms("press_project", $args = array('orderby' => 'menu_order','order' => 'ASC', "parent" => 0));
+    $post_term = wp_get_post_terms($post->ID, 'press_project');
+     $currentterm = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
+    echo '<ul class="cat-list ' .$currentterm.'">';
 	foreach ($terms as $key => $term) : 
-		$term = sanitize_term( $term, 'project_status' );
-		$term_link = get_term_link( $term, 'project_status' );
-		 $class = $currentterm->slug == $term->slug ? 'current' : '' ;	
+		$term = sanitize_term( $term, 'press_project' );
+		$term_link = get_term_link( $term, 'press_project' );
+		 $class = $currentterm == $term->slug ? 'current' : '' ;	
 		if ($terms):
 			echo '<li class="' .$class.'""><a href="' . esc_url( $term_link ) . '">' . $term->name .'</a></li>';
 		endif; endforeach;

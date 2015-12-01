@@ -16,7 +16,7 @@
 								</section>
 								<?php if (has_post_thumbnail()) {?>
 								<div class="image-container">
-							        <?php the_post_thumbnail('bones-thumb-360');?>
+							        <?php the_post_thumbnail('bones-thumb-370');?>
 							     </div>
 								<?php }?>
 						     <footer class="article-footer">

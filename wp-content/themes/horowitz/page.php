@@ -3,33 +3,7 @@
 			<div id="content">
 				
 				<div id="inner-content" class="container clearfix">
-					<?php 
-					$children = get_pages('child_of='.$post->ID);
-					$ancestors = get_post_ancestors($post->ID);
-
-					//Check if the page has children or ancestors if yes, output pages menu.
-					if(!empty($children) or !empty($ancestors)){
-					        global $post;
-					        $parents = get_post_ancestors( $post->ID );
-					        $id = ($parents) ? $parents[count($parents)-1]: $post->ID;
-					        $parent = get_page( $id );
-					        //Variables for adding ancestor page to the menu
-					        $currentUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-					        $parentUrl = get_permalink($id);
-					        $parentTitle = get_the_title($id);
-					    
-					    $args = array('child_of' => $id, 'title_li'=> ''); 
-					?>
-					<aside class="col-md-3">
-						<h3><?php echo $parentTitle; ?></h3>
-						<ul class="siblings">
-					    
-						    <?php /*List subpages*/ wp_list_pages( $args ); ?>
-						    
-						</ul>
-					</aside>
-					<?php } ?>
-					<div id="main"  role="main" <?php if (is_tree(4)){ echo 'class="col-md-9"'; } ?>>
+					<div id="main"  role="main" <?php if (is_tree(4)){ echo 'class="col-md-9 pull-left"'; } ?>>
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 						<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 							<section class="entry-content  clearfix" itemprop="articleBody">
@@ -49,43 +23,41 @@
 									$employee_facebook = get_sub_field('employee_facebook');
 									$employee_linkedin = get_sub_field('employee_linkedin');
 									if ($employee_name):?>
-							        <div class="<php if ($i > 1){ echo 'col-sm-6 col-lg-4';}else{ echo 'row';}?>">
-							        	<div class="employee <?php echo $i ?>">
+
+							        <?php if ($i > 1){ 
+							        	echo '<div class="col-sm-4 col-lg-3">';
+							        }?>
+							        	<div class="employee<?php if ($i == 1){ echo ' row ceo';} ?>">
 								        	<?php if ($employee_photo) {?>
 								        	<div class="image-container<?php if ($i == 1) { echo ' col-sm-4';}?>">
 								        		<img src="<?php echo $employee_photo['url']?>"/>
 								        	</div>
 								        	<?php }?>	
-								        	<?php if ($i == 1) {?>
-								        		<div class="col-sm-8">
-								        	<?php }?>
-								        	<h3><?php echo $employee_name ?></h3>
-								        	<?php 
-								        	if ($employee_position) {
-								        		echo '<h5>'.$employee_position.'</h5>';
-								        	}
-								        	if ($employee_bio) {
-								        		echo '<p>'.$employee_bio.'</p>';
-								        	}
-								        	if ($employee_mail || $employee_facebook || $employee_linkedin) {
-								        		echo '<div class="employee-contact">';
-									        	if ($employee_mail) {
-									        		echo '<a href="mailto:'.$employee_mail.'"><i class="fa fa-envelope"></i></a>';
+								        	<div class="bio <?php if ($i == 1) { echo ' col-sm-8';}?>">
+									        	<h3><?php echo $employee_name ?></h3>
+									        	<?php 
+									        	if ($employee_position) {
+									        		echo '<h5>'.$employee_position.'</h5>';
 									        	}
-									        	if ($employee_facebook) {
-									        		echo '<a href="'.$employee_facebook.'"><i class="fa fa-facebook"></i></a>';
+									        	if ($employee_bio) {
+									        		echo '<p>'.$employee_bio.'</p>';
 									        	}
-									        	if ($employee_linkedin) {
-									        		echo '<a href="'.$employee_linkedin.'"><i class="fa fa-linkedin"></i></a>';
-									        	}
-									        	echo '</div>';
-								        	}
-								        	if ($i == 1) {
-								        	echo '</div>';
-								        	}
-								        	?>
+									        	if ($employee_mail || $employee_facebook || $employee_linkedin) {
+									        		echo '<div class="employee-contact">';
+										        	if ($employee_mail) {
+										        		echo '<a href="mailto:'.$employee_mail.'"><i class="fa fa-envelope"></i>'.$employee_mail.'</a>';
+										        	}
+										        	if ($employee_facebook) {
+										        		echo '<a href="'.$employee_facebook.'"><i class="fa fa-facebook"></i></a>';
+										        	}
+										        	if ($employee_linkedin) {
+										        		echo '<a href="'.$employee_linkedin.'"><i class="fa fa-linkedin"></i></a>';
+										        	}
+										        	echo '</div>';
+									        	}?>
+									        </div>
 								        </div>
-							        </div>
+							         <?php if ($i > 1){ echo '</div>';}?>
 						   		 <?php endif;
 						   		 $i++; endwhile;?>
 						      </div>
@@ -101,7 +73,6 @@
 									    <div class="col-sm-2"><img src="<?php echo $image_thb[0]; ?>" class="attachment-thumbnail" /></div>
 									<?php endforeach; ?>
 									</div>
-								</div>
 							</section>
 							<?php endif; ?>
 						</article>
@@ -121,8 +92,34 @@
 
 						<?php endif; ?>
 
-					</div>				
+					</div>		
+					<?php 
+					$children = get_pages('child_of='.$post->ID);
+					$ancestors = get_post_ancestors($post->ID);
+
+					//Check if the page has children or ancestors if yes, output pages menu.
+					if(!empty($children) or !empty($ancestors)){
+					        global $post;
+					        $parents = get_post_ancestors( $post->ID );
+					        $id = ($parents) ? $parents[count($parents)-1]: $post->ID;
+					        $parent = get_page( $id );
+					        //Variables for adding ancestor page to the menu
+					        $currentUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+					        $parentUrl = get_permalink($id);
+					        $parentTitle = get_the_title($id);
+					    
+					    $args = array('child_of' => $id, 'title_li'=> '','sort_column' =>'menu_order'); 
+					?>
+					<aside class="col-md-3 pull-right">
+						<ul class="siblings">
+					    
+						    <?php /*List subpages*/ wp_list_pages( $args ); ?>
+						    
+						</ul>
+					</aside>
+					<?php } ?>		
 				</div>
+				
 			</div>
 
 <?php get_footer(); ?>

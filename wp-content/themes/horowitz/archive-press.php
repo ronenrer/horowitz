@@ -43,7 +43,7 @@
 														<?php echo '<p>'.$press_source.' | '.$press_year.'</p>'
 														?>
 														
-														<a class="btn btn-primary btn-small pull-left" href="<?php echo $continue ?>" target="<?php echo $target ?>"  rel="bookmark" title="<?php the_title_attribute(); ?>">המשך קריאה</a>
+														<a class="btn btn-primary btn-small pull-left" href="<?php the_permalink() ?>" target="<?php echo $target ?>"  rel="bookmark" title="<?php the_title_attribute(); ?>">המשך קריאה</a>
 													</section>
 												</div>
 											</article>
