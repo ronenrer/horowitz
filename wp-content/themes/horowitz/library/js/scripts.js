@@ -176,12 +176,12 @@ var currentTallest = 0,
  });
 };
 $(window).load(function() {
-  equalheight('.main-testimonials [class^="col-"]');
+  equalheight('.benefits [class^="col-"]');
   equalheight('.recent-posts  [class^="col-"]');
 
 });
 $(window).resize(function() {
-  equalheight('#main-testimonials [class^="col-"]');
+  equalheight('.benefits [class^="col-"]');
    equalheight('.recent-posts  [class^="col-"]');
 
 });
