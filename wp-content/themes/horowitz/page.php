@@ -1,9 +1,12 @@
 <?php get_header(); ?>
-
+<?php 
+$children = get_pages('child_of='.$post->ID);
+$ancestors = get_post_ancestors($post->ID);
+?>
 			<div id="content">
 				
 				<div id="inner-content" class="container clearfix">
-					<div id="main"  role="main" <?php if (is_tree(4)){ echo 'class="col-md-9 pull-left"'; } ?>>
+					<div id="main"  role="main" <?php if(!empty($children) or !empty($ancestors)){ echo 'class="col-md-9 pull-left"'; } ?>>
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 						<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 							<section class="entry-content  clearfix" itemprop="articleBody">
@@ -94,9 +97,6 @@
 
 					</div>		
 					<?php 
-					$children = get_pages('child_of='.$post->ID);
-					$ancestors = get_post_ancestors($post->ID);
-
 					//Check if the page has children or ancestors if yes, output pages menu.
 					if(!empty($children) or !empty($ancestors)){
 					        global $post;

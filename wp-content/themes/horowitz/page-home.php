@@ -78,7 +78,7 @@ Template Name: Homepage
 									</h2>
 									<div id="logoSlider" style="display:none">
 									<?php foreach( $images as $image ): 
-										 $image_thb = wp_get_attachment_image_src($image['id'], 'thumbnail'); ?>
+										 $image_thb = wp_get_attachment_image_src($image['id'], 'full'); ?>
 									    <div><img src="<?php echo $image_thb[0]; ?>" class="attachment-thumbnail" /></div>
 									<?php endforeach; ?>
 									</div>
@@ -98,8 +98,8 @@ Template Name: Homepage
 				    infinite: true,
 				    adaptiveHeight: true,
 				    speed: 300,
-				    rows:2,
-				    slidesPerRow: <?php echo $slidesToShow ?>,
+				    rows:1,
+				    slidesToShow: <?php echo $slidesToShow ?>,
 				    slidesToScroll: 1, 
 				    rtl: true,
 				    responsive: [
